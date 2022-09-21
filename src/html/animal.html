@@ -1,16 +1,69 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <script src="bundle.js"></script>
-<title>Amimals</title>
+    <title>Amimals</title>
 </head>
+
 <body>
-   <button onclick="MyLibrary.buttonClick()">Get A Random Animal</button>
-<h1 id="ButtonClick">Button not clicked</h1>
+    <h3>Get Random Animals from: https://zoo-animal-api.herokuapp.com/</h3>
+    <button onclick="MyLibrary.buttonClick()">Get A Random Animal</button><br>
+    <img id="animalPicture" width="500" height="333"><br>
+    <h10>Source: </h10>
+    <h20 id="ImageSource"></h20><br>
+    <table>
+        <tr>
+            <th>animal</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>name:</td>
+            <td id="tbName"></td>
+        </tr>
+        <tr>
+            <td>latin name:</td>
+            <td id="tbLatName"></td>
+        </tr>
+        <tr>
+            <td>type:</td>
+            <td id="tbType"></td>
+        </tr>
+        <tr>
+            <td>diet:</td>
+            <td id="tbDiet"></td>
+        </tr>
+        <tr>
+            <td>geo range:</td>
+            <td id="tbRange"></td>
+        </tr>
+        <tr>
+            <td>habitat:</td>
+            <td id="tbHabitat"></td>
+        </tr>
+        <tr>
+            <td>max length:</td>
+            <td id="tbMaxLenght"></td>
+        </tr>
+        <tr>
+            <td>min length:</td>
+            <td id="tbMinLenght"></td>
+        </tr>
+        <tr>
+            <td>lifespan:</td>
+            <td id="tbLifespan"></td>
+        </tr>
+        <tr>
+            <td>max weight:</td>
+            <td id="tbMaxWeight"></td>
+        </tr>
+        <tr>
+            <td>min weight:</td>
+            <td id="tbMinWeight"></td>
+        </tr>
+    </table>
+
 </body>
-
-
-
+<script src="bundle.js"></script>
 
 </html>
