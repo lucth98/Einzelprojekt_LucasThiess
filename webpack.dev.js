@@ -8,13 +8,14 @@ module.exports = {
   // Use the src/index.js file as entry point to bundle it.
   // If the src/index.js file imports other JS files,
   // bundle them as well
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry:['./src/index.js', './src/scripts/animal.js'],// path.resolve(__dirname, './src/index.js'),
   // 2
   // The bundles source code files shall result in a bundle.js file
   // in the /dist folder
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    library: 'MyLibrary'
   },
   // 3
   // The /dist folder will be used to serve our application
@@ -45,7 +46,11 @@ module.exports = {
    new HtmlWebpackPlugin({  // Also generate a test.html
     filename: 'contents.html',
     template: 'src/html/contents.html'
-  })
+  }),
+  new HtmlWebpackPlugin({  // Also generate a test.html
+   filename: 'animal.html',
+   template: 'src/html/animal.html'
+ })
   ],
   // 5 
   // Integrate Babel in the build process
