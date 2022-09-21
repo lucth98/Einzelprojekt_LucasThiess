@@ -29,7 +29,23 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Basic Webpack Setup",
       template: path.resolve(__dirname, './src/index.html'),
-    })
+    }),
+    new HtmlWebpackPlugin({  // Also generate a test.html
+      filename: 'test.html',
+      template: 'src/html/test.html'
+    }),
+    new HtmlWebpackPlugin({  // Also generate a test.html
+     filename: 'about.html',
+     template: 'src/html/about.html'
+   }),
+    new HtmlWebpackPlugin({  // Also generate a test.html
+     filename: 'home.html',
+     template: 'src/html/home.html'
+   }),
+   new HtmlWebpackPlugin({  // Also generate a test.html
+    filename: 'contents.html',
+    template: 'src/html/contents.html'
+  })
   ],
   // 5 
   // Integrate Babel in the build process
