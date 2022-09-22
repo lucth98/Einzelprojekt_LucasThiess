@@ -66,6 +66,14 @@ module.exports = {
         test: /\.(js)$/,
         exclude: /node_modules/, // files to exclude
         use: ['babel-loader']
+      }, 
+      // CSS and SASS
+      {
+        test:  /\.css$/i, // load files that end with scss and css
+        use: [
+          'style-loader',
+          'css-loader'
+        ],
       }
     ]
   },

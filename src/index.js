@@ -1,3 +1,4 @@
+import css from "./styles/style.css";
 // index.js
 const user = "lucas";
 console.log(`hello ${user}, welcome to your npm project!`);
