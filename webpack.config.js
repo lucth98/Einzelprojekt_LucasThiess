@@ -8,7 +8,7 @@ module.exports = {
   // Use the src/index.js file as entry point to bundle it.
   // If the src/index.js file imports other JS files,
   // bundle them as well
-  entry:['./src/index.js', './src/scripts/animal.js'],// path.resolve(__dirname, './src/index.js'),
+  entry: ['./src/index.js', './src/scripts/animal.js', './src/scripts/createAcount.js'],// path.resolve(__dirname, './src/index.js'),
   // 2
   // The bundles source code files shall result in a bundle.js file
   // in the /dist folder
@@ -36,21 +36,25 @@ module.exports = {
       template: 'src/html/test.html'
     }),
     new HtmlWebpackPlugin({  // Also generate a test.html
-     filename: 'about.html',
-     template: 'src/html/about.html'
-   }),
+      filename: 'about.html',
+      template: 'src/html/about.html'
+    }),
     new HtmlWebpackPlugin({  // Also generate a test.html
-     filename: 'home.html',
-     template: 'src/html/home.html'
-   }),
-   new HtmlWebpackPlugin({  // Also generate a test.html
-    filename: 'contents.html',
-    template: 'src/html/contents.html'
-  }),
-  new HtmlWebpackPlugin({  // Also generate a test.html
-   filename: 'animal.html',
-   template: 'src/html/animal.html'
- })
+      filename: 'home.html',
+      template: 'src/html/home.html'
+    }),
+    new HtmlWebpackPlugin({  // Also generate a test.html
+      filename: 'contents.html',
+      template: 'src/html/contents.html'
+    }),
+    new HtmlWebpackPlugin({  // Also generate a test.html
+      filename: 'animal.html',
+      template: 'src/html/animal.html'
+    }),
+    new HtmlWebpackPlugin({  // Also generate a test.html
+      filename: 'createAcount.html',
+      template: 'src/html/createAcount.html'
+    })
   ],
   // 5 
   // Integrate Babel in the build process
