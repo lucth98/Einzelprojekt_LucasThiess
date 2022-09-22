@@ -1,4 +1,68 @@
 body {
-    background-color: lightblue;
-  }
-  
+  background-color: lightblue;
+  border: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#links {
+  background-color: rgb(49, 115, 202);
+  border: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+div.bodyDiv {
+  background-color: lightcyan;
+  border: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+div.footerDiv {
+  background-color: lightskyblue;
+  border: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#animalPicture{
+  max-height:35%;
+  max-width:35%;
+  height:auto;
+  width:auto;
+}
+
+#animalDiv{
+  background-color: rgb(29, 141, 117);
+}
+
+#ImageSource{
+  font-style: italic;
+  font-size: 10px;
+}
+
+#tbLatName{
+  font-style: italic;
+}
+
+#animalButton {
+	background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:10px 48px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+#animalButton:hover {
+	background-color:#5cbf2a;
+}
+#animalButton:active {
+	position:relative;
+	top:1px;
+}
