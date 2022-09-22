@@ -58,3 +58,11 @@ async function getJSONFromWebsite(url) {
     return data;
 }
 
+
+console.log("animal Js loaded");
+try {
+    document.getElementById("animalButton").addEventListener("click", buttonClick);
+} catch (error) {
+    console.log(error);
+}
+
