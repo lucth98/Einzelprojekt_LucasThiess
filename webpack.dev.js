@@ -32,10 +32,6 @@ module.exports = {
       template: path.resolve(__dirname, './src/index.html'),
     }),
     new HtmlWebpackPlugin({  // Also generate a test.html
-      filename: 'test.html',
-      template: 'src/html/test.html'
-    }),
-    new HtmlWebpackPlugin({  // Also generate a test.html
       filename: 'about.html',
       template: 'src/html/about.html'
     }),
@@ -67,9 +63,9 @@ module.exports = {
         exclude: /node_modules/, // files to exclude
         use: ['babel-loader']
       },
-       // CSS and SASS
+      // CSS and SASS
       {
-        test:  /\.css$/i,  // load files that end with scss and css
+        test: /\.css$/i,  // load files that end with scss and css
         exclude: /node_modules/, // files to exclude
         use: [
           'style-loader',

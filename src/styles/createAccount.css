@@ -1,0 +1,24 @@
+.createAcountButton {
+    background-color: #2b1cb6;
+    border-radius: 15px;
+    border: 1px solid #3da4c6;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    max-width: 45%;
+  
+    font-size:2vw;
+    text-align: center;
+    padding: 10px 48px;
+   
+    text-shadow: 0px 1px 0px #6e2ccb;
+  }
+
+  .createAcountButton:hover {
+    background-color: #5da0d0;
+  }
+
+  .createAcountButton:active {
+    position: relative;
+    top: 1px;
+  }
