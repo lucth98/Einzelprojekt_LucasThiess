@@ -1,6 +1,13 @@
+//import css from "./styles/animal.css";
 let urlOfAnimalApi = "https://zoo-animal-api.herokuapp.com/animals/rand";
 
-export function buttonClick() {
+var listOffavoriteAnimals = new Set();
+var currentAnimal;
+
+export function randomAnimalButtonFunction() {
+    console.log("unhtiddem");
+    document.getElementById("animalDiv").style.visibility='visible';
+    document.getElementById("favoritAnimalsTable").style.visibility='collapse';
 
     displayAnimalData();
 }
@@ -8,6 +15,13 @@ export function buttonClick() {
 async function displayAnimalData() {
     var animalData = await getJSONFromWebsite(urlOfAnimalApi);
 
+    drawAnimal(animalData);
+
+    drawPicture(animalData["image_link"]);
+}
+
+
+function drawAnimal(animalData) {
     var element = document.getElementById("ImageSource");
     element.innerHTML = animalData["image_link"];
 
@@ -44,7 +58,15 @@ async function displayAnimalData() {
     element = document.getElementById("tbMinWeight");
     element.innerHTML = animalData["weight_min"];
 
-    drawPicture(animalData["image_link"]);
+    currentAnimal=null;
+    currentAnimal = animalData;
+
+}
+
+function addAnFavorite() {
+    listOffavoriteAnimals.add(currentAnimal);
+    console.log("add favorite animal to list")
+    console.log(listOffavoriteAnimals);
 }
 
 async function drawPicture(url) {
@@ -58,11 +80,67 @@ async function getJSONFromWebsite(url) {
     return data;
 }
 
+function showFavoriteAnimalsTabel() {
 
-console.log("animal Js loaded");
+    console.log("print table\n data:");
+    console.log(listOffavoriteAnimals);
+    
+    listOffavoriteAnimals.forEach(fillFavoriteAnimalsTabel);
+}
+
+function fillFavoriteAnimalsTabel(item) {
+    try {
+        console.log("build table\nData:");
+        console.log(item);
+
+        var table = document.getElementById("favoritAnimalsTable");
+        var row = table.insertRow();
+
+        var name = row.insertCell(0);
+        name.innerHTML = item["name"];
+
+        var type = row.insertCell(1);
+        type.innerHTML = item["animal_type"];
+
+        var remove = row.insertCell(2);
+        remove.innerHTML = "to do";
+
+        var show = row.insertCell(3);
+        show.innerHTML = "to do";
+
+    } catch (Error) {
+        console.log(Error);
+    }
+}
+
+function favoriteButtonFunction(){
+    console.log("favorite button clicked");
+
+    document.getElementById("animalDiv").style.visibility='collapse';
+    document.getElementById("favoritAnimalsTable").style.visibility='visible';
+   
+    try{
+        showFavoriteAnimalsTabel();
+    }catch{
+
+    }
+}
+
+
+console.log("animal Js loaded\nfavorit in loading");
+console.log(listOffavoriteAnimals);
 try {
-    document.getElementById("animalButton").addEventListener("click", buttonClick);
+    document.getElementById("animalButton").addEventListener("click", randomAnimalButtonFunction);
+    document.getElementById("showFavoriteButton").addEventListener("click", favoriteButtonFunction);
+    document.getElementById("addFavoriteAnimalButton").addEventListener("click", addAnFavorite);
+ 
+
 } catch (error) {
     console.log(error);
 }
 
+
+/*
+if (document.URL.includes("favoriteAnimals.html")) {
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\nfavorites has ben loaded");
+}*/

@@ -16,9 +16,15 @@
 </head>
 
 <body>
+
+
+    <div>
+        <h3>Get Random Animals from: https://zoo-animal-api.herokuapp.com/</h3><br>
+        <button id="animalButton">Get A Random Animal</button>
+        <button id="showFavoriteButton">Show your favorite Animals</button>
+        <br><br>
+    </div>
     <div id="animalDiv">
-        <h3>Get Random Animals from: https://zoo-animal-api.herokuapp.com/</h3>
-        <button id="animalButton">Get A Random Animal</button><br><br>
         <img id="animalPicture"><br>
         <h10>Source: </h10>
         <h20 id="ImageSource"></h20><br>
@@ -72,8 +78,20 @@
                 <td id="tbMinWeight"></td>
             </tr>
         </table>
+        <button id="addFavoriteAnimalButton">Add to favorite Animals</button>
+    </div>
+    <div id="favoritesDiv">
+        <h1>Test Test</h1>
+
+        <table id="favoritAnimalsTable">
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Remove</th>
+                <th>View</th>
+            </tr>
+        </table>
     </div>
 </body>
-<script src="bundle.js"></script>
 
 </html>

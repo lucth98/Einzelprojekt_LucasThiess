@@ -54,6 +54,10 @@ module.exports = {
     new HtmlWebpackPlugin({  // Also generate a test.html
       filename: 'createAcount.html',
       template: 'src/html/createAcount.html'
+    }),
+    new HtmlWebpackPlugin({  // Also generate a test.html
+      filename: 'favoriteAnimals.html',
+      template: 'src/html/favoriteAnimals.html'
     })
   ],
   // 5 
