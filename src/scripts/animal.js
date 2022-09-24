@@ -6,8 +6,8 @@ var currentAnimal;
 
 export function randomAnimalButtonFunction() {
     console.log("unhtiddem");
-    document.getElementById("animalDiv").style.visibility='visible';
-    document.getElementById("favoritAnimalsTable").style.visibility='collapse';
+    document.getElementById("animalDiv").style.visibility = 'visible';
+    document.getElementById("favoritAnimalsTable").style.visibility = 'collapse';
 
     displayAnimalData();
 }
@@ -19,7 +19,6 @@ async function displayAnimalData() {
 
     drawPicture(animalData["image_link"]);
 }
-
 
 function drawAnimal(animalData) {
     var element = document.getElementById("ImageSource");
@@ -58,9 +57,8 @@ function drawAnimal(animalData) {
     element = document.getElementById("tbMinWeight");
     element.innerHTML = animalData["weight_min"];
 
-    currentAnimal=null;
+    currentAnimal = null;
     currentAnimal = animalData;
-
 }
 
 function addAnFavorite() {
@@ -82,9 +80,12 @@ async function getJSONFromWebsite(url) {
 
 function showFavoriteAnimalsTabel() {
 
+    
+
     console.log("print table\n data:");
     console.log(listOffavoriteAnimals);
-    
+
+    emptyFavoriteTable();
     listOffavoriteAnimals.forEach(fillFavoriteAnimalsTabel);
 }
 
@@ -103,44 +104,87 @@ function fillFavoriteAnimalsTabel(item) {
         type.innerHTML = item["animal_type"];
 
         var remove = row.insertCell(2);
-        remove.innerHTML = "to do";
 
         var show = row.insertCell(3);
-        show.innerHTML = "to do";
+
+        var removeButton = document.createElement("BUTTON");
+        removeButton.innerHTML = "remove";
+        removeButton.addEventListener("click", function () {
+            removeFromList(item);
+            favoriteButtonFunction();
+        });
+
+        remove.appendChild(removeButton);
+
+        var showButton = document.createElement("button");
+        showButton.innerHTML = "show Animal";
+        showButton.addEventListener("click", function () {
+            showFavoriteAnimal(item);
+            drawPicture(item["image_link"]);
+        });
+        show.appendChild(showButton);
 
     } catch (Error) {
         console.log(Error);
     }
 }
 
-function favoriteButtonFunction(){
-    console.log("favorite button clicked");
+function removeFromList(item) {
+    try {
+        console.log("remove faforite begin");
+        console.log(listOffavoriteAnimals);
 
-    document.getElementById("animalDiv").style.visibility='collapse';
-    document.getElementById("favoritAnimalsTable").style.visibility='visible';
-   
-    try{
-        showFavoriteAnimalsTabel();
-    }catch{
+        listOffavoriteAnimals.delete(item);
+
+        console.log(listOffavoriteAnimals);
+        console.log("remove faforite end");
+
+    } catch (Error) {
 
     }
 }
 
+function emptyFavoriteTable() {
+    var table = document.getElementById("favoritAnimalsTable");
+    console.log("länge tabelle "+document.getElementById("favoritAnimalsTable").rows.length);
+    console.log(table.rows["length"]);
+    for (var i = 1; i < table.rows.length; i++) {
+
+        console.log("lösche zeile = "+i);
+        table.deleteRow(i);
+        i--;
+    }
+}
+
+function showFavoriteAnimal(animal) {
+    document.getElementById("animalDiv").style.visibility = 'visible';
+    document.getElementById("favoritAnimalsTable").style.visibility = 'collapse';
+    drawAnimal(animal);
+}
+
+function favoriteButtonFunction() {
+    console.log("favorite button clicked");
+
+    document.getElementById("animalDiv").style.visibility = 'collapse';
+    document.getElementById("favoritAnimalsTable").style.visibility = 'visible';
+
+    try {
+        
+        showFavoriteAnimalsTabel();
+    } catch {
+
+    }
+}
 
 console.log("animal Js loaded\nfavorit in loading");
 console.log(listOffavoriteAnimals);
-try {
-    document.getElementById("animalButton").addEventListener("click", randomAnimalButtonFunction);
-    document.getElementById("showFavoriteButton").addEventListener("click", favoriteButtonFunction);
-    document.getElementById("addFavoriteAnimalButton").addEventListener("click", addAnFavorite);
- 
 
-} catch (error) {
-    console.log(error);
+if (document.URL.includes("animal.html")) {
+    try {
+        document.getElementById("animalButton").addEventListener("click", randomAnimalButtonFunction);
+        document.getElementById("showFavoriteButton").addEventListener("click", favoriteButtonFunction);
+        document.getElementById("addFavoriteAnimalButton").addEventListener("click", addAnFavorite);
+    } catch (error) {
+        console.log(error);
+    }
 }
-
-
-/*
-if (document.URL.includes("favoriteAnimals.html")) {
-    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\nfavorites has ben loaded");
-}*/

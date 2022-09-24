@@ -52,7 +52,9 @@ div.footerDiv {
   font-style: italic;
 }
 
-#animalButton {
+
+
+.animalButtom {
 	background-color:#44c767;
 	border-radius:28px;
 	border:1px solid #18ab29;
@@ -65,10 +67,10 @@ div.footerDiv {
 	text-decoration:none;
 	text-shadow:0px 1px 0px #2f6627;
 }
-#animalButton:hover {
+.animalButtom:hover {
 	background-color:#5cbf2a;
 }
-#animalButton:active {
+.animalButtom:active {
 	position:relative;
 	top:1px;
 }

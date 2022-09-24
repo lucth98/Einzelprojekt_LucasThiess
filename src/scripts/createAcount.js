@@ -8,10 +8,10 @@ function emailValidation() {
 
     var regex = /\S+@\S+\.\S+/;
 
-    if(email==null){
+    if (email == null) {
         emailElement.setCustomValidity("please enter your email");
         emailElement.reportValidity();
-    }else if (regex.test(email)) {
+    } else if (regex.test(email)) {
         console.log(email + " Email valide");
         emailElement.setCustomValidity("");
         emailElement.reportValidity();
@@ -79,8 +79,8 @@ function passwordValidation() {
 
 function checkLengthOfInput(inputElementId, reqiredLength, message) {
     var inputElement = document.getElementById(inputElementId);
-    if(inputElement==null||inputElement.value == null){
-        console.log("Error name der komponente"+inputElementId);
+    if (inputElement == null || inputElement.value == null) {
+        console.log("Error name der komponente" + inputElementId);
         inputElement.setCustomValidity("please enter data in " + message);
         inputElement.reportValidity();
         return;
@@ -113,17 +113,18 @@ function submitValidation() {
     lastNameValidation();
 }
 
-try {
-    document.getElementById("cAEmail").addEventListener("input", emailValidation);
-    document.getElementById("cAAge").addEventListener("input", ageValidation);
-    document.getElementById("cAUserName").addEventListener("input", userNameValidation);
-    document.getElementById("cAPassword").addEventListener("input", passwordValidation);
-    document.getElementById("cAFirstName").addEventListener("input", firstNameValidation);
-    document.getElementById("cALastName").addEventListener("input", lastNameValidation);
-    document.getElementById("cASubmit").addEventListener("click", submitValidation);
-
-} catch (error) {
-    console.log(error);
+if (document.URL.includes("createAcount.html")) {
+    try {
+        document.getElementById("cAEmail").addEventListener("input", emailValidation);
+        document.getElementById("cAAge").addEventListener("input", ageValidation);
+        document.getElementById("cAUserName").addEventListener("input", userNameValidation);
+        document.getElementById("cAPassword").addEventListener("input", passwordValidation);
+        document.getElementById("cAFirstName").addEventListener("input", firstNameValidation);
+        document.getElementById("cALastName").addEventListener("input", lastNameValidation);
+        document.getElementById("cASubmit").addEventListener("click", submitValidation);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 
