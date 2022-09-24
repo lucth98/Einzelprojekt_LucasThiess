@@ -1,3 +1,4 @@
+import css from "../styles/createAccount.css";
 console.log("create acount Js loaded");
 
 
