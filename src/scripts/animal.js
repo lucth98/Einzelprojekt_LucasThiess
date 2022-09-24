@@ -1,14 +1,12 @@
-//import css from "./styles/animal.css";
+import css from "../styles/animal.css";
+
 let urlOfAnimalApi = "https://zoo-animal-api.herokuapp.com/animals/rand";
 
 var listOffavoriteAnimals = new Set();
 var currentAnimal;
 
 export function randomAnimalButtonFunction() {
-    console.log("unhtiddem");
-    document.getElementById("animalDiv").style.visibility = 'visible';
-    document.getElementById("favoritAnimalsTable").style.visibility = 'collapse';
-
+    showAnimalInfo();
     displayAnimalData();
 }
 
@@ -79,9 +77,6 @@ async function getJSONFromWebsite(url) {
 }
 
 function showFavoriteAnimalsTabel() {
-
-    
-
     console.log("print table\n data:");
     console.log(listOffavoriteAnimals);
 
@@ -109,6 +104,7 @@ function fillFavoriteAnimalsTabel(item) {
 
         var removeButton = document.createElement("BUTTON");
         removeButton.innerHTML = "remove";
+        removeButton.classList.add("animalButtom");
         removeButton.addEventListener("click", function () {
             removeFromList(item);
             favoriteButtonFunction();
@@ -118,9 +114,11 @@ function fillFavoriteAnimalsTabel(item) {
 
         var showButton = document.createElement("button");
         showButton.innerHTML = "show Animal";
+        showButton.classList.add("animalButtom");
         showButton.addEventListener("click", function () {
-            showFavoriteAnimal(item);
+            drawAnimal(item);
             drawPicture(item["image_link"]);
+            showAnimalInfo();
         });
         show.appendChild(showButton);
 
@@ -146,34 +144,36 @@ function removeFromList(item) {
 
 function emptyFavoriteTable() {
     var table = document.getElementById("favoritAnimalsTable");
-    console.log("länge tabelle "+document.getElementById("favoritAnimalsTable").rows.length);
+    console.log("länge tabelle " + document.getElementById("favoritAnimalsTable").rows.length);
     console.log(table.rows["length"]);
     for (var i = 1; i < table.rows.length; i++) {
 
-        console.log("lösche zeile = "+i);
+        console.log("lösche zeile = " + i);
         table.deleteRow(i);
         i--;
     }
 }
 
-function showFavoriteAnimal(animal) {
-    document.getElementById("animalDiv").style.visibility = 'visible';
-    document.getElementById("favoritAnimalsTable").style.visibility = 'collapse';
-    drawAnimal(animal);
-}
-
 function favoriteButtonFunction() {
     console.log("favorite button clicked");
 
-    document.getElementById("animalDiv").style.visibility = 'collapse';
-    document.getElementById("favoritAnimalsTable").style.visibility = 'visible';
+    showFavorites();
 
     try {
-        
         showFavoriteAnimalsTabel();
     } catch {
 
     }
+}
+
+function showAnimalInfo() {
+    document.getElementById("animalDiv").style.display = "block";
+    document.getElementById("favoritesDiv").style.display = "none";
+}
+
+function showFavorites() {
+    document.getElementById("animalDiv").style.display = "none";
+    document.getElementById("favoritesDiv").style.display = "block";
 }
 
 console.log("animal Js loaded\nfavorit in loading");

@@ -70,6 +70,7 @@ module.exports = {
        // CSS and SASS
       {
         test:  /\.css$/i,  // load files that end with scss and css
+        exclude: /node_modules/, // files to exclude
         use: [
           'style-loader',
           'css-loader'
